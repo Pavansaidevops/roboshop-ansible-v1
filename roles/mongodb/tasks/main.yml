@@ -1,0 +1,21 @@
+- name: Copying the Mongodb Repo file
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: Installing Mongodb
+  ansible.builtin.yum:
+    name: mongodb-org
+    state: installed
+
+- name: Update Listen Address in Mongodb Configuration file
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Start Mongodb
+  ansible.builtin.systemd_service:
+    name: mongod
+    state: restarted
+    enabled: true
