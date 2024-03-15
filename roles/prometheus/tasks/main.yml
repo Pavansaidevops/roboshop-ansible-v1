@@ -5,10 +5,10 @@
 
 - name: Copy Alerts File
   ansible.builtin.template:
-    src: prometheus.yml
+    src: alerts.yml
     dest: /opt/prometheus/alerts.yml
 
-- name : Restart Prometheus
+- name: Restart Prometheus
   ansible.builtin.systemd:
     name: prometheus
     state: restarted
