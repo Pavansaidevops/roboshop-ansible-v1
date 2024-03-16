@@ -39,7 +39,7 @@ scrape_configs:
   - job_name: 'nginx'
     ec2_sd_configs:
       - region: us-east-1
-        port: 9100
+        port: 9113
         filters:
           - name: "tag:Monitor_nginx"
             values: [ "yes" ]
