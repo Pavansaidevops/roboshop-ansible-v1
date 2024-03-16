@@ -31,7 +31,7 @@
     enabled: true
 
 - name: Create Nginx Prometheus Exporter Directory
-  ansible.builtin.shell:
+  ansible.builtin.file:
     path: /opt/nginx_exporter
     state: directory
 
