@@ -47,7 +47,7 @@
     dest: /etc/systemd/system/nginx_exporter.service
 
 - name: Restart Nginx Prometheus Exporter Service
-  ansible.builtin.system:
+  ansible.builtin.systemd_service:
     name: nginx_exporter
     state: restarted
     enabled: yes
